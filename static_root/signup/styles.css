@@ -38,7 +38,8 @@ form{
 	margin-top: 2%;
 }
 .bon{
-height:60vh;
+	height: auto;
+min-height:60vh;
 width:50%;
 margin: 2% auto;
 background-color: white;
@@ -91,7 +92,7 @@ padding-top:10px;
 	border-radius:300px;
 	background: green;
 	position:center;
-	margin-top:50px;
+	margin-top:15px;
 	margin-left:45%;
 	border: 2px solid #3399ff;
 }

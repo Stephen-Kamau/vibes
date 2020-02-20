@@ -323,8 +323,8 @@ img
 {
   width: 100%;
   display: flex;
-  border-top:2px solid #000;
-  background-color: #c0c0c0;
+  border-top:2px solid #c0c0c0;
+  background-color: #fafafa;
   z-index: 1;
   opacity: 1;
 }
