@@ -4,30 +4,27 @@ from django.http import HttpResponse
 from .models import signup as signmodel
 
 def signup(request):
-    existance = ("")
-    if request.method =="POST":
-        email = request.POST['email']
+    error_log = list()
+    if request.method == "POST":
         username = request.POST['username']
         pnumber = request.POST['pnumber']
-        # location = request.POST['location']
+        email = request.POST['email']
+        password = request.POST['password']
         hobby = request.POST['hobby']
         profilepic = request.FILES['profilepic']
-        password = request.POST['password']
+        location = "Hello"
+
         try:
-            existance = signup.objects.get(email = email)
-
+            signmodel.objects.get(email = email)
         except Exception as e:
-            pass
+            signmodel.objects.create(username = username , pnumber = pnumber , email = email , password = password ,
+            hobby = hobby , profilepic = profilepic , location = location)
+            return redirect("/login/")
 
         else:
-            pass
-        if existance:
-            error_log = "email already in use, try something else out"
+            error_log.append("User exists")
+            print("\n\n\n\n\n{}".format(error_log))
+            return render(request , "signup/signup.html" , context = {"error_log":error_log})
 
-        else:
-            signmodel.objects.create(email = email , username = username , pnumber = pnumber ,
-            location = "Hello" , hobby = hobby , profilepic = profilepic , password = password)
-
-        return redirect("/login/")
     else:
-        return render(request , "signup/signup.html" , context = {"error_log": error_log})
+        return render(request , "signup/signup.html")

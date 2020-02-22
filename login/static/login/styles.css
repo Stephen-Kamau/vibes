@@ -75,6 +75,19 @@ padding-top:10px;
 	text-align: center;
 
 }
+.inputlabel
+{
+	display: block;
+	width: 40%;
+	padding: 10px ;
+	margin: 10px auto;
+	color: red;
+	display: block;
+	text-align: center;
+}
+
+
+
 .keepme
 {
 	width: 100%;

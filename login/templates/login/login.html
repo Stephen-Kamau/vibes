@@ -17,6 +17,11 @@
 
 
 	<form action="{% url 'login:login' %}" method="POST">
+		{% for error in error_log %}
+		<label class="inputlabel">
+			{{error}}
+	</label>
+		{% endfor %}
 		{% csrf_token %}
 
 		<h3> Login Here</h3>
