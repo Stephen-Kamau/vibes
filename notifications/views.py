@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def notifications(request):
-    return HttpResponse("Hello notifs")
+    return render(request , "notifications/notifications.html")

@@ -200,3 +200,29 @@ border-right: 2px solid #ccc;
   color: #fff;
   background-color:#17a2b8 ;
 }
+
+
+@media screen and (max-width:1000px){
+
+  .arounddescription
+  {
+    display: none;
+  }
+
+  .aroundyou
+  {
+    display: none;
+  }
+
+  .aroundyou>label
+  {
+    display: none;
+  }
+
+  .search>input
+
+  {
+    margin-left: 25%;
+  }
+
+}

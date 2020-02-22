@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 
 def groups(request):
-    return HttpResponse("Hello groups")
+    return render(request , "groups/group.html")

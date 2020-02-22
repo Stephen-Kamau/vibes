@@ -1,0 +1,65 @@
+body{
+
+}
+#im{
+	border-radius: 50%;
+
+}
+.meg{
+	margin-bottom: 10px;
+	border-bottom: 2px solid red;
+	float: left;
+}
+#aside{
+	width: 300px;
+}
+#input{
+	margin-left: 66px;
+	margin-bottom: 20px;
+}
+p{
+	float: right;
+}
+.meg4{
+	clear: both;
+}
+#center{
+	clear: both;
+	width: 500px;
+}
+h1{
+
+}
+.received{
+	clear: both;
+	float: left;
+}
+.sent{
+	clear: both;
+	float: right;
+}
+button{
+	clear: both;
+}
+#group{
+
+}
+#right{
+	clear: both;
+}
+a{
+	display: block;
+}
+#aside{
+	float: left;
+}
+#center{
+	position: absolute;
+	top: 5px;
+	left: 320px;
+}
+#right{
+	position: absolute;
+	top: 5px;
+	left: 900px;
+}

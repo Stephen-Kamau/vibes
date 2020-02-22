@@ -16,7 +16,8 @@
 		<div class="bony">
 
 
-	<form action="{% url 'login:login' %}">
+	<form action="{% url 'login:login' %}" method="POST">
+		{% csrf_token %}
 
 		<h3> Login Here</h3>
 		<input type="text" placeholder="username" id="username" required class="input">
