@@ -17,8 +17,14 @@
    <div class = "dropdown">
 <button class = "dropbtn"> Account</button>
 <div class="dropdown-menu">
-	<a href="{% url 'login:login' %}">Login </a>
-	<a href="{% url 'signup:signup' %}"> Sign Up </a>
+
+	{% if loginstatus %}
+		<a href="{% url 'login:logout' %}"> Log Out</a>
+
+	{% else %}
+		<a href="{% url 'login:login' %}">Login </a>
+		<a href="{% url 'signup:signup' %}"> Sign Up </a>
+	{% endif %}
 
 </div>
 </div>

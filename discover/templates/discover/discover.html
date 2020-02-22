@@ -70,18 +70,22 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-sm-7 col-md-7 col-lg-7 col-sm-7 search">
 
+          {% for user in users %}
+
           <!-- card starts here -->
 
             <div class="singleuser">
-              <h5 class="suggestuser">Name</h5>
+              <h5 class="suggestuser">{{user.username}}</h5>
 
               <div class="container">
                 <div class="row">
                   <div class="col-xm-12 col-sm-12 col-lg-4 col-xl-4 profile">
-                    <img src="{% static 'discover/img/robot.jpg' %}" class="card-img-top" alt="No image">
+                    <img src="/media/{{user.profilepic}}" class="card-img-top" alt="No image">
                   </div>
                   <div class="col-xm-12 col-sm-12 col-lg-8 col-xl-8 description">
                     <p>lorem</p>
+
+                    <p>Followers {{user.Followers__follower__count}}</p>
 
                     <div class="follow">
                       <label><i class="fa fa-map-marker"></i>Location</label>
@@ -96,6 +100,8 @@
 
             </div>
           <!-- card ends here -->
+
+          {% endfor %}
 
         </div>
 

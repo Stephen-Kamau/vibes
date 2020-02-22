@@ -4,5 +4,5 @@ from . import views
 app_name = "home"
 
 urlpatterns = [
-    url("" , views.home , name = "home"),
+    url("^$" , views.home , name = "home")
 ]
