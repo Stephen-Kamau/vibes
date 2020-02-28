@@ -1,24 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
 <html >
-
 <head>
-	<title>Account Recovery</title>
-	<link rel="stylesheet" href="style.css"/>
+
+	<title>Vibes | Login</title>
+	<link rel="stylesheet" href="{% static 'login/styles.css' %}"/>
 </head>
+
 <body>
+	<p>
+		<img src="{% static 'home/images/logo.jpg' %}" alt="image" id="photo" vibes>
+
+	</p>
 	<div class="bon">
 		<div class="bony">
-			<form action="recovery.html">
-			<h3>Email verification link has been send.</h3>
-			<p style="text-align: center" >We have send  verification link on your email addree please confirm your email address and login in to your account</p>
 
-		
-				<p style="text-align:center">Go back to  <a class="link" href="login.html"> <p align="center"><i><b>Login Page</b></i></a></p>
+	<form action="{% url 'login:login' %}" method="POST">
+		{% csrf_token %}
+		<h3> Login Here</h3>
 
+		{% for error in error_log %}
+		<label class="inputlabel">
+			{{error}}
+		</label>
+		{% endfor %}
+		<input type="text" placeholder="username" name = "username" id="username" required class="input">
 
-			
-				
+		<input type="password" placeholder="password" name = "password" id="password" required class="input">
+		<p>
+				<div class="keepme">
+					<input type="checkbox" id="keepme">
+					<label for="keepme">keep me signed in</label>
+				</div>
+
 			</p>
-		</div></div>
+		<input type="submit" value="login" class="input">
+
+		<div class=""  id="forgot">
+			<a href="{% url 'login:forgot' %}">
+					<b>forgot password?</b>
+			</a>
+		</div>
+
+		<p style="text-align:center">
+			<span>New member?</span>
+
+			<a class="link" href="{% url 'signup:signup' %}">
+				<b>Signup</b>
+			</a>
+
+		</p>
+	</form>
+	</div>
+</div>
 
 </body>
 </html>

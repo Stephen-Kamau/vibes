@@ -86,11 +86,11 @@ def forgotcredetials(request):
                     userdata.password = make_password(hashcode)
                     userdata.save()
                     print("Message sent successfully to {}".format(receiver))
-                    return redirect("/")
+                    return render(request , "login/thanks.html")
 
                 finally:
                     print("Exiting the mail client program")
-                    return render(request , "login/forgot.html")
+                    return render(request , "login/thanks.html")
 
     else:
         return render(request , "login/forgot.html")
