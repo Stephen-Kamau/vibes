@@ -7,7 +7,7 @@ class signup(models.Model):
     username = models.CharField(max_length = 30 , unique = True)
     pnumber = models.IntegerField()
     location = models.CharField(max_length = 30)
-    hobby = models.CharField(max_length = 30)# , default = 'Nairobi/Kenya'
+    hobby = models.CharField(max_length = 30 , default = "Nairobi/Kenya")
     profilepic = models.FileField()
     password = models.CharField(max_length = 255)
 

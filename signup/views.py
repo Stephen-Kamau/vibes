@@ -12,8 +12,9 @@ def signup(request):
         email = request.POST['email']
         password = make_password(request.POST['password'])
         hobby = request.POST['hobby']
-        profilepic = request.FILES['profilepic']
-        location = "Hello"
+        print("\n\n\n\n{}".format(username))
+        #profilepic = request.FILES['profilepic']
+        # location = "Hello"
 
         try:
             signmodel.objects.get(email = email)
@@ -23,7 +24,7 @@ def signup(request):
 
             except Exception as e:
                 signmodel.objects.create(username = username , pnumber = pnumber , email = email , password = password ,
-                hobby = hobby , profilepic = profilepic , location = location)
+                hobby = hobby , profilepic = "profilepic")
                 return redirect("/login/")
 
             else:
@@ -38,3 +39,44 @@ def signup(request):
 
     else:
         return render(request , "signup/signup.html")
+
+
+
+
+def userauthentication(request):
+    try:
+        uname = request.GET['username']
+
+    except Exception as e:
+        pass
+
+    else:
+        try:
+            signmodel.objects.get(username = uname)
+
+        except Exception as e:
+            return HttpResponse("false")
+
+        else:
+            return HttpResponse("true")
+
+
+
+
+
+def emailauthentication(request):
+    try:
+        email = request.GET['email']
+
+    except Exception as e:
+        pass
+
+    else:
+        try:
+            signmodel.objects.get(email = email)
+
+        except Exception as e:
+            return HttpResponse("false")
+
+        else:
+            return HttpResponse("true")

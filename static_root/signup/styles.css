@@ -63,15 +63,49 @@ padding-top:10px;
    margin: 5px 0px;
 }
 
-.input{
+.inputlabel
+{
 	display: block;
 	width: 40%;
 	padding: 10px ;
 	margin: 10px auto;
+	color: red;
+	display: block;
+	text-align: center;
+}
+
+
+.input{
+	display: block;
+	width: 40%;
+	padding: 10px ;
+	margin: 3px auto;
 	border: 1px solid #c0c0c0;
 	display: block;
 	text-align: center;
 
+}
+
+button
+{
+	display: block;
+	width: 40%;
+	padding: 10px ;
+	margin: 3px auto;
+	border: 1px solid #c0c0c0;
+	display: block;
+	text-align: center;
+}
+
+.validation
+{
+	font-size: 14px;
+	display: block;
+	width: 40%;
+	margin: 0px auto;
+	color: red;
+	display: block;
+	text-align: center;
 }
 
 #submit{

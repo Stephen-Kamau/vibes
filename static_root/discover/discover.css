@@ -97,6 +97,7 @@ border-right: 2px solid #ccc;
 .profile>img
 {
   width: 120px;
+  height: 120px;
   border-radius: 200px;
 }
 
@@ -176,6 +177,7 @@ border-right: 2px solid #ccc;
 {
   margin-left: 10%;
   width: 100px;
+  height: 100px;
   border-radius: 200px;
 }
 
@@ -199,4 +201,30 @@ border-right: 2px solid #ccc;
   display: block;
   color: #fff;
   background-color:#17a2b8 ;
+}
+
+
+@media screen and (max-width:1000px){
+
+  .arounddescription
+  {
+    display: none;
+  }
+
+  .aroundyou
+  {
+    display: none;
+  }
+
+  .aroundyou>label
+  {
+    display: none;
+  }
+
+  .search>input
+
+  {
+    margin-left: 25%;
+  }
+
 }

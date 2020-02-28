@@ -9,11 +9,12 @@
 <body>
 	<div class="bon">
 		<div class="bony">
-			<form action="recovery.html">
-			<h3>please Enter your Email address.</h3>
+			<form method="POST" action="{% url 'login:forgot' %}">
+				<h3>please Enter your Email address.</h3>
+				{% csrf_token %}
 
-			<input type="email" placeholder="Email Address" required>
-				<input type="submit" value="submit">
+			<input type="email" placeholder="Email Address" name = "email" required>
+			<input type="submit" value="submit">
 		</form>
 		</div>
 	</div>

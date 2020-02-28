@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # Create your views here.
 from signup.models import signup
@@ -8,6 +8,14 @@ from .models import Followers
 
 def discover(request):
 
-    users = signup.objects.filter(location = "Nairobi/Kenya").annotate(Count("Followers__follower"))
+    try:
+        request.session['username']
 
-    return render(request , "discover/discover.html" , context = {"users":users})
+    except KeyError as e:
+        return redirect("/login/")
+
+    else:
+        users = signup.objects.all()
+        around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location)
+
+        return render(request , "discover/discover.html" , context = {"users":users , "around": around})

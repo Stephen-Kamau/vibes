@@ -10,11 +10,11 @@ def business(request):
     dataitems = sell_goods.objects.all()
 
     try:
-        uname = request.session.get("username")
+        uname = request.session["username"]
 
-    except Exception as e:
+    except KeyError as e:
         # KeyError
-        return redirect("/")
+        return redirect("/login/")
 
     else:
 
