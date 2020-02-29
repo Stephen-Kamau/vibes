@@ -22,19 +22,19 @@
 						{{error}}
 				</label>
 					{% endfor %}
-
-				<input type="hidden" name="_token" value="{{ csrf_token }}" id="tok">
+					{% csrf_token %}
+				<!-- <input type="hidden" name="_token" value="{{ csrf_token }}" id="tok"> -->
 				<input type="text" placeholder="Username" name = "username" required autocomplete="true" class="input" onchange="userauthentication()" id="uname">
 				<label id="usernamevalid" class="validation"></label>
 				<input type="phone" name="pnumber" placeholder="phone" class="input" id="phone">
 				<input type="email" name="email" placeholder="email" required autocomplete="true" class="input" onchange="emailauthentication()" id="ema">
 				<label id="emailvalid" class="validation"></label>
-				<input type="password" name = "password" placeholder="Password" id="pass1" required  class="input" onchange="passwordmaster(pass1)">
-				<input type="password" placeholder="confirm password" id="pass2" required class="input" onchange="passwordmaster(pass2)">
+				<input type="password" name = "pass1" placeholder="Password" id="pass1" required  class="input" onchange="passwordmaster(pass1)">
+				<input type="password" placeholder="confirm password" name="pass2" id="pass2" class="input" onchange="passwordmaster(pass2)" required>
 				<input type="text" placeholder="Hobby" name = "hobby" required autocomplete="true" class="input" id="hobby">
 				<input type="file" name="profilepic" value="Profile picture" class="input" id="profile">
 				<!-- <input type="submit" name="submit" value="signup" id="submit" class="input" onclick="spinnermanager()"> -->
-				<button type="button" name="button" class="btn btn-info" onclick="form_manager()">
+				<button type="submit" name="submit" class="btn btn-info" id="submit" onclick="spinnermanager()">
 					Signup
 					<!-- <i class="" id="submit"></i> -->
 					<i class="" id="spin"></i>
@@ -64,33 +64,42 @@
 
 function spinnermanager()
 {
-	document.getElementById("spin").setAttribute("class" , "fa fa-spinner fa-spin fa-2x");
-	// document.getElementById("submit").setAttribute("disabled");
-	var csrf = document.getElementById("tok").value;
-	var uname = document.getElementById("uname").value;
-	var phone = document.getElementById("phone").value;
-	var email = document.getElementById("ema").value;
-	var password = document.getElementById("pass1").value;
-	var hobby = document.getElementById("hobby").value;
-	var profilepic = document.getElementById("profile").value;
 
-
-
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function()
+	if(document.getElementById("uname").value != "" && document.getElementById("phone").value != "" && document.getElementById("ema").value != "" && document.getElementById("pass1").value != "" &&  document.getElementById("pass2").value != "" &&
+	 document.getElementById("pass2").value !="" && document.getElementById("profile").value == "")
 	{
-		if(this.readyState == 4 && this.status == 200)
-		{
-				alert("Hello");
-		}
+
+		document.getElementById("spin").setAttribute("class" , "fa fa-spinner fa-spin fa-2x");
 	}
 
-	xhttp.open("POST" , "/signup/" , true);
-	var ck = document.cookie.split("=")[1];
-	alert(ck);
-	xhttp.setRequestHeader("X-CSRFToken" ,ck);
-	xhttp.setRequestHeader("Content-type" , "application/x-www-form-urlencoded");
-	xhttp.send("username="+uname+"&pnumber="+phone+"&email="+email+"&password="+password+"&hobby="+hobby+"&profilepic"+profilepic);
+
+	// document.getElementById("submit").setAttribute("disabled");
+	// var csrf = document.getElementById("tok").value;
+	// var uname = document.getElementById("uname").value;
+	// var phone = document.getElementById("phone").value;
+	// var email = document.getElementById("ema").value;
+	// var password = document.getElementById("pass1").value;
+	// var hobby = document.getElementById("hobby").value;
+	// var profilepic = document.getElementById("profile").value;
+	//
+	//
+	//
+	// var xhttp = new XMLHttpRequest();
+	// xhttp.onreadystatechange = function()
+	// {
+	// 	if(this.readyState == 4 && this.status == 200)
+	// 	{
+	// 		document.getElementById("spin").setAttribute("class" , "");
+	// 			alert(this.responseText);
+	// 	}
+	// }
+	//
+	// xhttp.open("POST" , "/signup/" , true);
+	// var ck = document.cookie.split("=")[1];
+	// alert(ck);
+	// xhttp.setRequestHeader("X-CSRFToken" ,ck);
+	// xhttp.setRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+	// xhttp.send("username="+uname+"&pnumber="+phone+"&email="+email+"&password="+password+"&hobby="+hobby+"&profilepic"+profilepic);
 
 }
 
@@ -138,20 +147,24 @@ if(document.getElementById("hobby").value == "")
 
 				if(pass1 == "" || pass2 == "")
 					{
+						document.getElementById("pass1").innerHTML = "";
+						document.getElementById("pass2").innerHTML = "";
 						alert("password cannot be empty");
 					}
 
 				else if(pass1 != pass2)
 					{
-						alert("Password mismatch");
 						document.getElementById("pass1").innerHTML = "";
 						document.getElementById("pass2").innerHTML = "";
+						alert("Password mismatch");
 					}
 
 				else {
 					if(pass1.length < 10)
 						{
-							alert("short password");
+							document.getElementById("pass2").innerHTML = "";
+							document.getElementById("pass1").innerHTML = "";
+							alert("Short password");
 						}
 					}
 			}
@@ -177,11 +190,13 @@ if(document.getElementById("hobby").value == "")
 					{
 						document.getElementById("usernamevalid").innerHTML = "username taken";
 						document.getElementById("usernamevalid").style.color = "#f00";
+						document.getElementById("submit").disabled=true;
 					}
 
 					else {
 						document.getElementById("usernamevalid").innerHTML = "username available";
 						document.getElementById("usernamevalid").style.color = "#7fa";
+						document.getElementById("submit").enabled=true;
 					}
 			}
 		};
@@ -204,11 +219,18 @@ if(document.getElementById("hobby").value == "")
 				{
 					document.getElementById("emailvalid").innerHTML = "Email in use by another account";
 					document.getElementById("emailvalid").style.color = "#f00";
+					document.getElementById("submit").disabled=true;
 				}
 
-				else {
+				else if(this.responseText == "false"){
 					document.getElementById("emailvalid").innerHTML = "email available";
 					document.getElementById("emailvalid").style.color = "#7fa";
+					document.getElementById("submit").enabled=true;
+				}
+
+				else{
+					document.getElementById("emailvalid").innerHTML = this.responseText;
+					document.getElementById("emailvalid").style.color = "#f00f00";
 				}
 			}
 		};

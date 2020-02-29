@@ -1,21 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
 <html >
 <head>
-	<meta charset="	UTF-8">
-	
-	<link rel="stylesheet" href="style.css"/>
+
+	<title>Vibes | account recovery</title>
+	<link rel="stylesheet" href="{% static 'login/styles.css' %}"/>
 </head>
 
 <body>
+	<p>
+		<img src="{% static 'home/images/logo.jpg' %}" alt="image" id="photo" vibes>
+
+	</p>
 	<div class="bon">
 		<div class="bony">
-			<h4>Thankyou for creating an account</h4>
-			<p style="text-align: ">
-				We have send  a verification link via your Email Address please confirm.
-			</p>
-			<p style="text-align:center";>
-				<a href="login.html"><i><b>Sign In Now</b></i></a>
+			<label class="inputlabel">
+				Thank you for taking your time. We've sent reset password to your account as you provided.
+				Reset your password As soon as you get there
+			</label>
 
-				</p>
+
+		<p style="text-align:center">
+			<a href="{% url 'login:login' %}">
+					<b>Login instead?</b>
+			</a>
+
+		</p>
+	</div>
+</div>
 
 </body>
 </html>

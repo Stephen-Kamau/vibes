@@ -5,7 +5,8 @@
 	box-sizing:border-box;
 }
 
-body{ background-color:#f0f0f0;
+body{
+	background-color:#f0f0f0;
 }
 
 a{
@@ -15,33 +16,27 @@ a{
 }
 
 
-
-form{
-	/* margin-top: 10%; */
-}
 .link{
 	color:#3b5998;
-}
-
-#forgot{
-	margin-left: 60%;
-	color: #0f0;
-
 }
 
 p{
 	margin:5px 0px;
 }
 
-
+#forgot{
+	text-align: center;
+}
 form{
 	margin-top: 2%;
 }
+
+
 .bon{
 height:50vh;
 width:50%;
 margin: 2% auto;
-background-color: white;
+background-color: #fff;
 border: 1px solid #c0c0c0;
 padding-top:10px;
 
@@ -61,10 +56,6 @@ padding-top:10px;
    margin: 5px 0px;
 }
 
-.forgot
-{
-	float: right;
-}
 
 .input{
 	width: 40%;
@@ -81,18 +72,18 @@ padding-top:10px;
 	width: 100%;
 	padding: 10px ;
 	margin: 10px auto;
-	color: red;
+	color: #f00;
 	display: block;
 	text-align: center;
 }
-
-
 
 .keepme
 {
 	width: 100%;
 	text-align: center;
 }
+
+
 input[type="submit"]{
 	border: 2px solid #3b5998;
 	background-color:#3b5998;
@@ -101,6 +92,8 @@ input[type="submit"]{
 	font-weight: bold;
 	cursor: pointer;
 }
+
+
 .dropbtn {
 	background-color:;
 	border-style: none;
@@ -111,24 +104,27 @@ input[type="submit"]{
 	font-size: 16px;
 	border-radius: 2px;
 }
+
 .dropdown{
 	position: relative;
 	display: inline-block;
 	float: right;
 	margin-right: 5px;
 }
+
+
 .dropdown-menu {
 	display: none;
 	position: right;
 	float: right;
 	background-color: #f1f1f1;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px
-	rgba(0,0,0,0.2);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 	padding-left:10px;
 
 }
+
 .dropdown-menu a {
 	color:#c0c0c0;
 	padding:12px 16px;
@@ -136,16 +132,21 @@ input[type="submit"]{
 	display: block;
 
 }
+
+
 .dropdown-menu a:hover{
 	background-color:#efefeff5;
 	text-decoration: none;
 }
+
+
 .dropdown:hover .dropdown-menu{
 	display:inline;
 	border-bottom: 2px solid #3399ff;
 	min-width: 90px;
 
 }
+
 .dropdown:hover .dropbtn{
 	background-color: #c0c0c0;
 	color: black;
@@ -162,12 +163,13 @@ nav{
   border-bottom: 1px solid #c0c0c0;
   display: inline-block;
   text-align: left;
-
-
 }
+
+
 .row{
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 .column{
 	float:left;
 	width: 25%;
@@ -177,6 +179,7 @@ nav{
 .row {
 	margin : 0- 5px;
 }
+
 .row:after{
 	content: "";
 	display: table;
@@ -184,6 +187,7 @@ nav{
 	margin-top: 20px;
 
 }
+
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	padding: 16px;
@@ -224,6 +228,7 @@ nav{
 	width: 200px;
 	height: 100px;
 }
+
 .welcome{
 	background:;
 	color:  #3399ff;
@@ -246,12 +251,7 @@ nav{
 	height: 30px;
 
 }
-.search{
-	width: 50%;
-	margin-left: 30%;
-	font-family: arial;
-	color: red;
-}
+
 .links{
 	display:flex;
 	text-align: center;

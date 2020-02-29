@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from signup.models import signup
-import smtplib,string,random
+import smtplib,string,random,validate_email as v
 from django.contrib.auth.hashers import check_password,make_password
 
 
@@ -43,57 +43,63 @@ def login(request):
 
 def forgotcredetials(request):
 
+    bug_hunter = []
+
     if request.method == "POST":
         try:
             lostuser = request.POST['email']
 
         except Exception as e:
-            return render(request , "login/forgot.html")
+            bug_hunter.append("Invalid input")
+            return render(request , "login/forgot.html" , context = {"error":bug_hunter})
 
         else:
             try:
                 userdata = signup.objects.get(email = lostuser)
 
             except signup.DoesNotExist as e:
-                return render(request , "login/forgot.html")
+                bug_hunter.append("Email not registered with us")
+                return render(request , "login/forgot.html" , context = {"error":bug_hunter})
 
             else:
 
-                hashcode = string.ascii_letters + string.digits
-                hashcode = "".join([random.choice(hashcode) for value in range(10)])
-                sender = "anornymous99@gmail.com"
-                receiver = lostuser
+                if v.validate_email(lostuser):
+                    hashcode = string.ascii_letters + string.digits
+                    hashcode = "".join([random.choice(hashcode) for value in range(10)])
+                    sender = "anornymous99@gmail.com"
+                    receiver = lostuser
 
-                message = """From: %s
-                To: %s
-                Content-Type:text/html
-                Mime-version:1.0
-                Content-disposition: text
-                Subject:Vibes reset password is: %s
-                """%("anornymous99@gmail.com",receiver , hashcode)
+                    message = """From: %s
+                    To: %s
+                    Content-Type:text/html
+                    Mime-version:1.0
+                    Content-disposition: text
+                    Subject:Vibes reset password is: %s
+                    """%("anornymous99@gmail.com",receiver , hashcode)
+                    
+                    try:
+                        obj=smtplib.SMTP('smtp.gmail.com', 587)
+                        obj.starttls()
+                        obj.login("anornymous99@gmail.com","xcmbyzwvy")
+                        obj.sendmail(sender,receiver,message)
 
-                try:
-                    obj=smtplib.SMTP('smtp.gmail.com', 587)
-                    obj.starttls()
-                    obj.login("anornymous99@gmail.com","xcmbyzwvy")
-                    obj.sendmail(sender,receiver,message)
+                    except Exception as error:
+                        print("Error: {}".format(error))
+                        bug_hunter.append("Connection could not be established")
+                        return render(request , "login/forgot.html" , context = {"error":bug_hunter})
 
-                except Exception as error:
-                    print("Error: {}".format(error))
-                    return render(request , "login/forgot.html")
-
+                    else:
+                        userdata.password = make_password(hashcode)
+                        userdata.save()
+                        print("Message sent successfully to {}".format(receiver))
+                        print("Exiting the mail client program")
+                        return render(request , "login/thanks.html")
                 else:
-                    userdata.password = make_password(hashcode)
-                    userdata.save()
-                    print("Message sent successfully to {}".format(receiver))
-                    return render(request , "login/thanks.html")
 
-                finally:
-                    print("Exiting the mail client program")
-                    return render(request , "login/thanks.html")
+                    return render(request , "login/forgot.html" , context = {"error":bug_hunter})
 
     else:
-        return render(request , "login/forgot.html")
+        return render(request , "login/forgot.html" , context = {"error":bug_hunter})
 
 
 
