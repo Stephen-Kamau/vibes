@@ -64,7 +64,7 @@ def forgotcredetials(request):
             else:
 
                 if v.validate_email(lostuser):
-                    hashcode = string.ascii_letters + string.digits
+                    hashcode = string.digits + string.ascii_letters + string.digits + string.digits
                     hashcode = "".join([random.choice(hashcode) for value in range(10)])
                     sender = "anornymous99@gmail.com"
                     receiver = lostuser
@@ -76,7 +76,7 @@ def forgotcredetials(request):
                     Content-disposition: text
                     Subject:Vibes reset password is: %s
                     """%("anornymous99@gmail.com",receiver , hashcode)
-                    
+
                     try:
                         obj=smtplib.SMTP('smtp.gmail.com', 587)
                         obj.starttls()

@@ -93,13 +93,77 @@
   display: none;
 }
 
+.div-main
+{
+  margin-top: 10px;
+}
 
+
+.div-main:last-child
+
+{
+  margin-left: 30px;
+}
+
+.signlenotif
+{
+  margin-top: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid #00aada;
+}
+
+
+.notifymessage>button
+{
+  border: 1px solid #00aada;
+}
+.notifyuser>img
+{
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
 
 
 .div-main:last-child
 {
   margin-top: 10px;
-  border-top: 2px solid #ccc;
+}
+.notifyuser
+{
+
+}
+
+
+
+
+
+.div-main1
+{
+  border-right: 1px solid #c0c0c0;
+}
+
+.follower
+{
+  margin-bottom: 10px;
+}
+
+
+.follower>img
+{
+  width: 100px;
+  height: 100px;
+  border-radius: 200px;
+}
+.follower>button
+{
+  border: 1px solid #00aada;
+}
+
+
+.follower>label
+{
+  width: 100%;
 }
 
 @media screen and (max-width:1000px) {

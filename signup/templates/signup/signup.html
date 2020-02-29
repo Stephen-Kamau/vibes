@@ -32,9 +32,9 @@
 				<input type="password" name = "pass1" placeholder="Password" id="pass1" required  class="input" onchange="passwordmaster(pass1)">
 				<input type="password" placeholder="confirm password" name="pass2" id="pass2" class="input" onchange="passwordmaster(pass2)" required>
 				<input type="text" placeholder="Hobby" name = "hobby" required autocomplete="true" class="input" id="hobby">
-				<input type="file" name="profilepic" value="Profile picture" class="input" id="profile">
+				<input type="file" name="profilepic" value="Profile picture" class="input" id="profile" required>
 				<!-- <input type="submit" name="submit" value="signup" id="submit" class="input" onclick="spinnermanager()"> -->
-				<button type="submit" name="submit" class="btn btn-info" id="submit" onclick="spinnermanager()">
+				<button type="submit" name="submit" class="btn btn-info" id="submit" onclick="form_manager()">
 					Signup
 					<!-- <i class="" id="submit"></i> -->
 					<i class="" id="spin"></i>
@@ -66,10 +66,10 @@ function spinnermanager()
 {
 
 	if(document.getElementById("uname").value != "" && document.getElementById("phone").value != "" && document.getElementById("ema").value != "" && document.getElementById("pass1").value != "" &&  document.getElementById("pass2").value != "" &&
-	 document.getElementById("pass2").value !="" && document.getElementById("profile").value == "")
+	 document.getElementById("pass2").value !="" && document.getElementById("profile").value != "")
 	{
 
-		document.getElementById("spin").setAttribute("class" , "fa fa-spinner fa-spin fa-2x");
+		document.getElementById("spin").setAttribute("class" , "fa fa-spinner fa-spin fa-1x");
 	}
 
 
@@ -107,33 +107,44 @@ function spinnermanager()
 
 function form_manager()
 {
-	spinnermanager();
+	var flag = false;
+
 	if(document.getElementById("uname").value == "")
 	{
+
 		alert("Username blank");
 	}
 
-	if(document.getElementById("phone").value == "")
+	else if(document.getElementById("phone").value == "")
 	{
+
 		alert("phone blank");
 	}
-	if(document.getElementById("ema").value == "")
+	else if(document.getElementById("ema").value == "")
 	{
+
 		alert("email blank");
 	}
-	if(document.getElementById("pass1").value == "" || document.getElementById("pass2").value == "")
+	else if(document.getElementById("pass1").value == "" || document.getElementById("pass2").value == "")
 	{
+
 		alert("pass1 blank");
 	}
 
-if(document.getElementById("hobby").value == "")
+else if(document.getElementById("hobby").value == "")
 	{
+
 		alert("hobby blank");
 	}
-	if(document.getElementById("profile").value == "")
+	else if(document.getElementById("profile").value == "")
 	{
+
 		alert("profile blank");
 	}
+	else {
+
+	}
+	spinnermanager();
 }
 
 
@@ -190,13 +201,13 @@ if(document.getElementById("hobby").value == "")
 					{
 						document.getElementById("usernamevalid").innerHTML = "username taken";
 						document.getElementById("usernamevalid").style.color = "#f00";
-						document.getElementById("submit").disabled=true;
+						// document.getElementById("submit").disabled=true;
 					}
 
 					else {
 						document.getElementById("usernamevalid").innerHTML = "username available";
 						document.getElementById("usernamevalid").style.color = "#7fa";
-						document.getElementById("submit").enabled=true;
+						// document.getElementById("submit").enabled=true;
 					}
 			}
 		};
@@ -219,13 +230,13 @@ if(document.getElementById("hobby").value == "")
 				{
 					document.getElementById("emailvalid").innerHTML = "Email in use by another account";
 					document.getElementById("emailvalid").style.color = "#f00";
-					document.getElementById("submit").disabled=true;
+					// document.getElementById("submit").disabled=true;
 				}
 
 				else if(this.responseText == "false"){
 					document.getElementById("emailvalid").innerHTML = "email available";
 					document.getElementById("emailvalid").style.color = "#7fa";
-					document.getElementById("submit").enabled=true;
+					// document.getElementById("submit").enabled=true;
 				}
 
 				else{
