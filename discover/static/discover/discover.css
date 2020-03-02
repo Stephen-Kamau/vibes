@@ -125,12 +125,25 @@ border-right: 2px solid #ccc;
   display: block;
 }
 
+.follow>button
+{
+  margin-left: 30px;
+  /*
+  display: block;
+  color: #red;
+  background-color:#17a2b8 ; */
+  display: block;
+	border:1px solid #00aada;
+	margin: 10px 0px 10px 0px;
+}
+
+
 .follow>button>a
 {
-  background-color:inherit;
+  font-weight: 400;
+  font-size: 20px;
   text-decoration: none;
-  color: inherit;
-  text-align: right;
+  background-color: inherit;
 }
 
 .follow>label:first-child>i
@@ -146,12 +159,6 @@ border-right: 2px solid #ccc;
   margin-top: 10px;
 }
 
-.follow>button
-{
-  background-color: #17a2b8;
-  color: #fff;
-  margin-bottom: 20px;
-}
 
 .arounddescription
 {
@@ -180,27 +187,33 @@ border-right: 2px solid #ccc;
   height: 100px;
   border-radius: 200px;
 }
-
-
 .user-content>label
 {
-  margin-left: 30px;
+  margin-left: 50px;
+  display: block;
+}
+
+.user-content>h2
+{
+  margin-left: 50px;
   display: block;
 }
 
 .user-content>button>a
 {
-  color: inherit;
+
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: none;
   background-color: inherit;
 }
 
 
 .user-content>button
 {
-  margin-left: 30px;
   display: block;
-  color: #fff;
-  background-color:#17a2b8 ;
+	border:1px solid #00aada;
+	margin: 10px 0px 10px 32px;
 }
 
 

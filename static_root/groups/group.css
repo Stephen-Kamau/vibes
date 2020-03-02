@@ -1,65 +1,238 @@
-body{
+*
+{
+  background-color: #fafafa;
+}
+
+
+
+.row>.alldivs
+{
+  box-sizing: border-box;
+  background-color: #fafafa;
+  border: 1px solid blue;
+  margin: 3px auto;
+  margin-top: 10px;
+}
+
+
+
+
+.logo
+{
+  display: inline;
+  flex:1;
+}
+.logo>img
+{
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 10%;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 3vw;
+}
+
+.nav-bar
+{
+  display: flex;
+  margin-top: 10px;
+  color: #000;
+  height: 13vh;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-bar>a
+{
+  box-sizing: border-box;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: blue;
+  flex: 1;
+  text-decoration: none;
+}
+
+
+.nav-bar>input
+{
+  box-sizing: border-box;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #000;
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+  /* height: 100%; */
+}
+
+
+
+.div-nav
+{
+	margin: 10px auto;
 
 }
-#im{
-	border-radius: 50%;
 
-}
-.meg{
-	margin-bottom: 10px;
-	border-bottom: 2px solid red;
-	float: left;
-}
-#aside{
-	width: 300px;
-}
-#input{
-	margin-left: 66px;
-	margin-bottom: 20px;
-}
-p{
-	float: right;
-}
-.meg4{
-	clear: both;
-}
-#center{
-	clear: both;
-	width: 500px;
-}
-h1{
 
+.div-nav>input
+{
+	margin-left: 0px;
+	box-sizing: border-box;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #000;
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
 }
-.received{
-	clear: both;
-	float: left;
-}
-.sent{
-	clear: both;
-	float: right;
-}
-button{
-	clear: both;
-}
-#group{
 
+
+
+.upper-label
+{
+	width: 100%;
+	margin-left: 0px;
+	box-sizing: border-box;
+  margin: 2% auto;
+  color: #000;
+  flex: 1;
+	font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+	background-color: inherit;
 }
-#right{
-	clear: both;
+
+#groups
+{
+
+	margin: 10px auto;
+	margin-left: 50px;
 }
-a{
+
+.viewmore
+{
+	min-height: 10px;
+}
+
+
+.viewmore>a
+{
+	text-align: right;
+}
+
+
+
+.user>label
+{
 	display: block;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 5px;
 }
-#aside{
-	float: left;
+
+
+
+.user>img
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	margin-bottom: 30px;
 }
-#center{
-	position: absolute;
-	top: 5px;
-	left: 320px;
+
+.user>p
+{
+	display: inline;
+	margin-left: 15px;
+
 }
-#right{
-	position: absolute;
-	top: 5px;
-	left: 900px;
+
+
+.user
+{
+	border-bottom: 1px solid #c0c0c0;
+}
+
+
+
+
+.imgg>img
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	margin-bottom: 30px;
+}
+
+
+.creategroup
+{
+	width: 80%;
+	margin-left: 0px;
+	box-sizing: border-box;
+  margin: 2% auto;
+  color: #000;
+  flex: 1;
+	font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+	background-color: inherit;
+	border:1px solid #00aada;
+	margin: 10px 0px 10px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.recentuser>label
+{
+	display: block;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+
+
+.img>img
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 6%;
+	margin-bottom: 30px;
+}
+
+.recentuser>.moreuserdata
+{
+	display: inline;
+	margin-left: 15px;
+
+}
+
+.moreuserdata>button
+{
+	display: block;
+	border:1px solid #00aada;
+	margin: 10px 0px 10px 0px;
+}
+
+
+.recentuser
+{
+	border-bottom: 1px solid #c0c0c0;
 }
