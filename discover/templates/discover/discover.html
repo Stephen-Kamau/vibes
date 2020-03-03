@@ -24,8 +24,6 @@
             <img src="{% static 'business/img/vibes.jpg' %}" alt="Vibes">
         </div>
 
-
-
             <a href="{% url 'profile:profile' %}">
               <span class="fa fa-home"></span>
 
@@ -75,7 +73,6 @@
           <!-- card starts here -->
 
             <div class="singleuser">
-              <h2 class="suggestuser">{{user.username}}</h2>
 
               <div class="container">
                 <div class="row">
@@ -83,9 +80,11 @@
                     <img src="/media/{{user.profilepic}}" class="card-img-top" alt="No image">
                   </div>
                   <div class="col-xm-12 col-sm-12 col-lg-8 col-xl-8 description">
-                    <p>lorem</p>
+                    <label>
+                      <h2 class="suggestuser">{{user.username}}</h2>
+                    </label>
 
-                    <p>Followers {{user.follow}}</p>
+                    <label>Followers {{user.follow}}</label>
 
                     <div class="follow">
                       <label class="fa fa-map-marker"> {{user.location}}</label>

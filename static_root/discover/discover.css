@@ -52,6 +52,12 @@
 {
   border: 1px solid #ccc;
   margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.container>.row
+{
+    background-color: #fff;
 }
 
 .nav-bar>a>span
@@ -86,12 +92,14 @@
   text-align: center;
   font-weight:bold;
   text-decoration: underline;
+  background-color: #fff;
 }
 
 
 .profile
 {
 border-right: 2px solid #ccc;
+background-color: #fff;
 }
 
 .profile>img
@@ -104,18 +112,21 @@ border-right: 2px solid #ccc;
 .description
 {
   display: block;
+  background-color: #fff;
 }
 
 
-.description>p
+.description>label
 {
   display: block;
+  background-color: #fff;
 }
 
 
 .suggestuser
 {
   margin-left: 13%;
+  background-color: #fff;
 }
 
 
@@ -123,6 +134,7 @@ border-right: 2px solid #ccc;
 {
   width: 60%;
   display: block;
+  background-color: #fff;
 }
 
 .follow>button
@@ -150,11 +162,13 @@ border-right: 2px solid #ccc;
 {
   font-size: 20px;
   margin-right: 10px;
+  background-color: #fff;
 }
 
 
 .follow>label
 {
+  background-color: #fff;
   display: block;
   margin-top: 10px;
 }
@@ -163,6 +177,7 @@ border-right: 2px solid #ccc;
 .arounddescription
 {
   display: flex;
+  background-color: #fff;
 }
 
 .user-content
@@ -178,6 +193,7 @@ border-right: 2px solid #ccc;
   margin-top: 10%;
   margin-bottom: 10%;
   border-right: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .user-img>img
@@ -191,12 +207,14 @@ border-right: 2px solid #ccc;
 {
   margin-left: 50px;
   display: block;
+  background-color: #fff;
 }
 
 .user-content>h2
 {
   margin-left: 50px;
   display: block;
+  background-color: #fff;
 }
 
 .user-content>button>a
@@ -217,6 +235,11 @@ border-right: 2px solid #ccc;
 }
 
 
+.user-content
+{
+  background-color: #fff;
+}
+
 @media screen and (max-width:1000px){
 
   .arounddescription
@@ -232,6 +255,7 @@ border-right: 2px solid #ccc;
   .aroundyou>label
   {
     display: none;
+    background-color: #fff;
   }
 
   .search>input

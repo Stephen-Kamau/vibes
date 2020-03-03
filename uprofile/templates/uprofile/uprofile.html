@@ -8,34 +8,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'uprofile/css/style.css' %}">
-    <title>Uprofile</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Vibes | Profile</title>
   </head>
   <body>
     <div class="nav">
       <div class="navbar">
-        <div class="img-logo">
+        <img class="img-logo" src="{% static 'business/img/vibes.jpg' %}">
 
-        </div>
       </div>
+
       <div class="navbar first">
-        <input type="search" name="" value="" placeholder="search.." style="border-radius:50px;padding-left:10px;">
+        <input type="search" name="" value="" placeholder="search..." style="border-radius:10px;padding-left:10px;">
       </div>
+
       <a href="{% url 'home:home' %}">
+        <i class="fa fa-home"></i>
         <div class="navbar">
           Home
         </div>
       </a>
       <a href="{% url 'groups:groups' %}">
+        <i class="fa fa-users"></i>
         <div class="navbar">
           Groups
         </div>
       </a>
       <a href="{% url 'notifications:notifications' %}">
+        <i class="fa fa-bell"></i>
         <div class="navbar">
           Notification
         </div>
       </a>
       <a href="{% url 'business:business' %}">
+        <i class="fa fa-business-time "></i>
         <div class="navbar">
           Business
         </div>
@@ -45,12 +51,26 @@
     <div class="row profile">
       <div class="col-md-3 profile-section">
         <center>
-        <div class="img-logo2"></div>
-        <p>username</p>
+        <img src="/media/{{userinfo.profilepic}}" class="img-logo2">
+      </img>
+        <p>
+          <strong>{{userinfo.username}}</strong>
+        </p>
         <h6 class="text-success">online</h6>
-        <div class=""><br>
-          <p><span>15 </span> Messages</p>
-          <p> Downloads</p>
+        <div class="abt-user"><br>
+          <p>
+            <span class="fa fa-envelope">15 </span> Messages
+          </p>
+
+          <p>
+            <span class="fa fa-map-marker">explore</span>
+          </p>
+
+          <p>
+            <a href="#">Edit profile</a>
+            <br>
+            <a href="{% url 'profile:event_manager' %}">AddEvent?</a>
+          </p>
         </div>
         <center>
       </div>
@@ -60,22 +80,44 @@
         </center>
         <hr>
         <center>
-          <div class="template row">
-            <div class=" col-md-4 video-section">
+          <!-- start of loop -->
+
+            {% for oneevnt in evnt %}
+
+            <div class="template row">
+              <div class="col-md-4 video-section">
+
+                <video controls loop width="100%" height="100%">
+                  <source src="/media/{{oneevnt.event_brief_pic}}" type="video/mp4">
+                </video>
+
+              </div>
+              <div class="col-md-6 eventdescription">
+              <div>
+                <strong>
+                  {{oneevnt.event_name}}
+                </strong>
+                <br>
+                {{oneevnt.event_description}}
+
+              </div>
+
+              <div class="event-time">
+                <p class="location">
+
+                  {{oneevnt.post_time}}
+                </p>
+                <p class="location">
+                  <i class="fa fa-map-marker" style="font-size:15px;"></i> Nairobi/Kenya
+                </p>
+              </div>
+              </div>
 
             </div>
-            <div class="col-md-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            </div>
-          </div>
-          <div class="template row">
-            <div class=" col-md-4 video-section">
 
-            </div>
-            <div class="col-md-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            </div>
-          </div>
+            {% endfor %}
+
+          <!-- loop through all events -->
         </center>
       </div>
     </div>

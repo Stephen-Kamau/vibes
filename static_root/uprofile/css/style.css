@@ -7,9 +7,35 @@
   margin-bottom: 10px;
   margin-left: 10px;
 }
+.navbar>img
+{
+  border: 1px solid #0ca0ca;
+}
+
+
+.eventdescription{
+    margin-left: 20px;
+      border-bottom: 1px solid #0ca0ca;
+}
 .row{
   width: 100%
 }
+
+.first
+{
+  width: 30%;
+}
+
+.first>input
+{
+  margin: 0px auto;
+  width: 50%;
+  height: 80%;
+
+  text-align: center;
+}
+
+
 @media only screen and (max-width: 500px) {
   .img-logo{
     background: black;
@@ -38,12 +64,22 @@
   .profile-section{
 
   }
+
   .video-section{
     min-width:100px;
     min-height: 200px;
     background: grey;
   }
+
+  .video-section>video
+  {
+    width:10px;
+    height: 10px;
+    background: grey;
+  }
+
 }
+
 @media only screen and (min-width: 500px) {
   .img-logo{
     background: black;
@@ -59,10 +95,36 @@
     margin-top: 50px;
   }
   .first{
-    margin-left: auto;
+    /* margin-left: auto; */
   }
+
   .nav{
     border-bottom: 1px solid black;
+  }
+
+  .nav>a
+  {
+    margin-top: 30px;
+    margin-left: 30px;
+    text-decoration: none;
+    /* margin-left: auto; */
+  }
+
+.nav>a>i
+{
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+
+.abt-user>p>span
+{
+  font-size: 20px;
+}
+
+  .nav>a:first-child
+  {
+    margin-left: 30px;
   }
 
   .profile{
@@ -75,5 +137,15 @@
     min-width:100px;
     min-height: 200px;
     background: grey;
+  }
+
+
+  .event-time{
+    margin-left:auto;
+    margin-top: 30%;
+  }
+
+  .event-time>.location{
+    text-align: right;
   }
 }

@@ -135,11 +135,13 @@ img
   height: 200px;
 }
 
+
 .card
 {
   border-bottom:3px solid  purple;
   margin-bottom: 20px;
   color:#666;
+  /* background-color: #f00; */
 }
 
 

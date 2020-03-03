@@ -102,7 +102,7 @@
                                 <img src="/media/{{item.Gphoto}}" class="card-img-right" alt="Hello world">
                               </div>
 
-                              <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
+                              <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6 goodcolor">
                                 <h1 class="card-title">{{item.Gtitle}}</h1>
                                 <p class="card-text">
                                   {{item.GDescription}}
@@ -112,21 +112,21 @@
                                 <div class="container">
                                   <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                      <label class="fa fa-map-marker map"></label>
-                                      <label id="location">{{item.GLocation}}</label>
+                                      <label class="fa fa-map-marker map" class="divcolor"></label>
+                                      <label id="location" class="divcolor">{{item.GLocation}}</label>
                                     </div>
-                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 divcolor">
                                         <label class="item-price">{{item.Gprice}} Ksh</label>
                                     </div>
 
                                   </div>
                                 </div>
-                                <form class="addingcart" action="" method="post">
+                                <form class="addingcart" action="" method="post" class="divcolor">
                                   {% csrf_token %}
                                   <!-- Add the item id on the hidden field -->
                                   <input type="hidden" name="itemid" value="">
                                   <input type="checkbox" name="picked" id="addcart{{item.GoodId}}">
-                                  <label for="addcart{{item.GoodId}}">Add to cart</label>
+                                  <label for="addcart{{item.GoodId}}" class="divcolor">Add to cart</label>
                                 </form>
                               </div>
 
