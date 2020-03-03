@@ -15,8 +15,10 @@ def discover(request):
         return redirect("/login/")
 
     else:
-        users = signup.objects.all().annotate(follow = Count("following"))
-        around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location).annotate(follow = Count("following"))
+        print(request.session['username'])
+        users = signup.objects.exclude(username = request.session['username']).annotate(follow = Count("followers"), follower = Count("following"))
+        around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location).exclude(username = request.session['username']).annotate(follow = Count("followers") , follower = Count("following"))
+        print(Followers.objects.all())
 
         return render(request , "discover/discover.html" , context = {"users":users , "around": around})
 
@@ -33,3 +35,8 @@ def followBot(request , fid):
         print(fid)
         Followers.objects.create(follower_id = uuid,following_id = fid)
         return redirect("/discover/")
+
+
+
+def unfollowBot(request):
+    pass

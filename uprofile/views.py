@@ -18,9 +18,9 @@ def profile(request):
 
     else:
         userinfo = signup.objects.get(username = userinfo)
-        eve = Followers.objects.all()
-        print(eve)
-        evnt = events.objects.all()
+
+        evnt = events.objects.filter(usereventid_id = 1)
+        print(evnt)
 
         return render(request , "uprofile/uprofile.html" , context = {"userinfo":userinfo , "evnt":evnt})
 
