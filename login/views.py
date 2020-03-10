@@ -25,6 +25,7 @@ def login(request):
 
                 # add username to the session
                 request.session["username"] = username
+                request.session['items'] = list()
                 request.session["loginstatus"] = True
 
                 # set the sessions expiry date

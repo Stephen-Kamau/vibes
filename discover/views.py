@@ -15,7 +15,34 @@ def discover(request):
         return redirect("/login/")
 
     else:
-        users = signup.objects.all()
-        around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location)
+        # print(request.session['username'])
+        # users = Followers.objects.exclude(fid=signup.objects.get(username = request.session['username']).uid , is_following = True).annotate(follow = Count("follower_id"), follower = Count("following"))
+        users = signup.objects.exclude(username = request.session['username'] ).annotate(follow = Count("followers"), follower = Count("following"))
+        for user in users:
+            print(user.follower)
+            print("\n\n")
+            print(user.following)
+        print("\n\n\n\n\n\n")
+        around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location).exclude(username = request.session['username']).annotate(follow = Count("followers") , follower = Count("following"))
+        print(Followers.objects.all())
 
         return render(request , "discover/discover.html" , context = {"users":users , "around": around})
+
+
+
+def followBot(request , fid):
+    try:
+        uuid = signup.objects.get(username = request.session['username']).uid
+
+    except Exception as e:
+        return redirect("/login/")
+
+    else:
+        print(fid)
+        Followers.objects.create(follower_id = uuid,following_id = fid)
+        return redirect("/discover/")
+
+
+
+def unfollowBot(request):
+    pass

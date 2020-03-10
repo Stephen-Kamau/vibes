@@ -24,8 +24,6 @@
             <img src="{% static 'business/img/vibes.jpg' %}" alt="Vibes">
         </div>
 
-
-
             <a href="{% url 'profile:profile' %}">
               <span class="fa fa-home"></span>
 
@@ -37,7 +35,7 @@
 
             </a>
 
-            <a href="{% url 'messaging:messaging' %}">
+            <a href="{% url 'messaging:display' %}">
               <span class="fa fa-envelope"></span>
 
             </a>
@@ -75,22 +73,26 @@
           <!-- card starts here -->
 
             <div class="singleuser">
-              <h5 class="suggestuser">{{user.username}}</h5>
 
               <div class="container">
                 <div class="row">
-                  <div class="col-xm-12 col-sm-12 col-lg-4 col-xl-4 profile">
+                  <div class="col-xm-12 col-sm-5 col-lg-4 col-xl-4 profile">
                     <img src="/media/{{user.profilepic}}" class="card-img-top" alt="No image">
                   </div>
                   <div class="col-xm-12 col-sm-12 col-lg-8 col-xl-8 description">
-                    <p>lorem</p>
+                    <label>
+                      <h2 class="suggestuser">{{user.username}}</h2>
+                    </label>
 
-                    <p>Followers {{user.follower__count}}</p>
+                    <label>Followers {{user.follower}}</label>
+                    <label>Following {{user.follow}}</label>
 
                     <div class="follow">
-                      <label><i class="fa fa-map-marker"></i>Location</label>
-                      <label>Field</label>
-                      <button type="button" name="button"><a href="#">Follow</a></button>
+                      <label class="fa fa-map-marker"> {{user.location}}</label>
+                      <label>Job {{user.hobby}}</label>
+                      <button type="button" name="button">
+                        <a href="{% url 'discover:followBot' user.uid %}">Follow</a>
+                      </button>
                     </div>
 
                   </div>
@@ -106,7 +108,7 @@
         </div>
 
 
-        <div class="col-xs-12 col-sm-12 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+        <div class="col-xs-12 col-sm-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
             <div class="card">
 
               <!-- Loop through this div -->
@@ -119,11 +121,13 @@
                 </div>
 
                 <div class="user-content">
-                  <label>{{aroundyou.username}}</label>
-                  <label>{{aroundyou.hobby}}</label>
-                  <label>{{aroundyou.location}}</label>
+                  <h2>{{aroundyou.username}}</h2>
+                  <label>Followers {{aroundyou.follower}}</label>
+                  <label>Following {{aroundyou.follow}}</label>
+                  <label class="fa fa-map-marker"> {{aroundyou.location}}</label>
+                  <label>Job {{aroundyou.hobby}}</label>
                   <button type="button" name="button">
-                    <a href="#">Follow</a>
+                    <a href="{% url 'discover:followBot' aroundyou.uid %}">Follow</a>
                   </button>
                 </div>
 
@@ -132,17 +136,6 @@
               {% endfor %}
 
               <!-- End of individual dataset -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 

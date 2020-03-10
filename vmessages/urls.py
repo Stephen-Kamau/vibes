@@ -5,5 +5,7 @@ app_name = "messaging"
 
 
 urlpatterns = [
-    url('^$' , views.messaging , name = 'messaging'),
+    url('^$' , views.display , name = 'display'),
+    # url('^display/' , views.display , name = 'display'),
+    url('^(?P<receiverId>[\d]+)/$' , views.messaging , name = 'messaging'),
 ]
