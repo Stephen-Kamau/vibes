@@ -15,6 +15,7 @@ def discover(request):
         return redirect("/login/")
 
     else:
+<<<<<<< HEAD
         # print(request.session['username'])
         # users = Followers.objects.exclude(fid=signup.objects.get(username = request.session['username']).uid , is_following = True).annotate(follow = Count("follower_id"), follower = Count("following"))
         users = signup.objects.exclude(username = request.session['username'] ).annotate(follow = Count("followers"), follower = Count("following"))
@@ -23,6 +24,10 @@ def discover(request):
             print("\n\n")
             print(user.following)
         print("\n\n\n\n\n\n")
+=======
+        print(request.session['username'])
+        users = signup.objects.exclude(username = request.session['username']).annotate(follow = Count("followers"), follower = Count("following"))
+>>>>>>> upstream/master
         around = signup.objects.filter(location = signup.objects.get(username = request.session['username']).location).exclude(username = request.session['username']).annotate(follow = Count("followers") , follower = Count("following"))
         print(Followers.objects.all())
 

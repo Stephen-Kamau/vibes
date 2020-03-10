@@ -123,6 +123,7 @@
 
                                   </div>
                                 </div>
+<<<<<<< HEAD
                                 <form class="addingcart" action="{% url 'business:cart' %}" method="post" class="divcolor">
                                   {% csrf_token %}
                                   <!-- Add the item id on the hidden field -->
@@ -130,6 +131,14 @@
                                   <button name="submit" value="Sell" class="btn btn-info">Add to cart</button>
                                   <!-- id="addcart{{item.GoodId}}"> -->
                                   <!-- <label for="addcart{{item.GoodId}}" class="divcolor">Add to cart</label> -->
+=======
+                                <form class="addingcart" action="" method="post" class="divcolor">
+                                  {% csrf_token %}
+                                  <!-- Add the item id on the hidden field -->
+                                  <input type="hidden" name="itemid" value="">
+                                  <input type="checkbox" name="picked" id="addcart{{item.GoodId}}">
+                                  <label for="addcart{{item.GoodId}}" class="divcolor">Add to cart</label>
+>>>>>>> upstream/master
                                 </form>
                               </div>
 

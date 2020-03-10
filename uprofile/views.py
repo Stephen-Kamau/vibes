@@ -19,7 +19,11 @@ def profile(request):
     else:
         userinfo = signup.objects.get(username = userinfo)
 
+<<<<<<< HEAD
         evnt = events.objects.all()
+=======
+        evnt = events.objects.filter(usereventid_id = 1)
+>>>>>>> upstream/master
         print(evnt)
 
         return render(request , "uprofile/uprofile.html" , context = {"userinfo":userinfo , "evnt":evnt})

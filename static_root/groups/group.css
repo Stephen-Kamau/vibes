@@ -3,12 +3,21 @@
   background-color: #fafafa;
 }
 
+<<<<<<< HEAD
 
 
 .row>.alldivs
 {
   box-sizing: border-box;
   background-color: #fff;
+=======
+
+
+.row>.alldivs
+{
+  box-sizing: border-box;
+  background-color: #fafafa;
+>>>>>>> upstream/master
   border: 1px solid blue;
   margin: 3px auto;
   margin-top: 10px;
@@ -102,6 +111,7 @@
   text-decoration: none;
   text-align: center;
   background-color: #fff;
+<<<<<<< HEAD
 }
 
 #groups
@@ -131,6 +141,36 @@
 	margin-left: 20px;
 	margin-top: 5px;
   background-color: #fff;
+=======
+	background-color: inherit;
+}
+
+#groups
+{
+
+	margin: 10px auto;
+	margin-left: 50px;
+}
+
+.viewmore
+{
+	min-height: 10px;
+}
+
+
+.viewmore>a
+{
+	text-align: right;
+}
+
+
+
+.user>label
+{
+	display: block;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 5px;
 }
 
 
@@ -147,6 +187,36 @@
 {
 	display: inline;
 	margin-left: 15px;
+
+}
+
+
+.user
+{
+	border-bottom: 1px solid #c0c0c0;
+>>>>>>> upstream/master
+}
+
+
+
+<<<<<<< HEAD
+.user>img
+=======
+
+.imgg>img
+>>>>>>> upstream/master
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	margin-bottom: 30px;
+}
+
+<<<<<<< HEAD
+.user>p
+{
+	display: inline;
+	margin-left: 15px;
   background-color: #fff;
 
 }
@@ -156,11 +226,30 @@
 {
 	border-bottom: 1px solid #c0c0c0;
   background-color: #fff;
+=======
+
+.creategroup
+{
+	width: 80%;
+	margin-left: 0px;
+	box-sizing: border-box;
+  margin: 2% auto;
+  color: #000;
+  flex: 1;
+	font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+	background-color: inherit;
+	border:1px solid #00aada;
+	margin: 10px 0px 10px 0px;
+>>>>>>> upstream/master
 }
 
 
 
 
+<<<<<<< HEAD
 .imgg>img
 {
 	width: 70px;
@@ -186,6 +275,13 @@
 	border:1px solid #00aada;
 	margin: 10px 0px 10px 0px;
 }
+=======
+
+
+
+
+
+>>>>>>> upstream/master
 
 
 
@@ -198,7 +294,10 @@
 	margin-left: 20px;
 	margin-top: 5px;
 	text-align: center;
+<<<<<<< HEAD
   background-color: #fff;
+=======
+>>>>>>> upstream/master
 }
 
 
@@ -230,5 +329,8 @@
 .recentuser
 {
 	border-bottom: 1px solid #c0c0c0;
+<<<<<<< HEAD
   background-color: #fff;
+=======
+>>>>>>> upstream/master
 }
